@@ -72,7 +72,7 @@ $reponse = $bdd->query('SELECT console, nom, prix FROM jeux_video WHERE console=
 while ($donnees = $reponse->fetch())
 {
 echo '<p>'. $donnees['console'] . ' - '. $donnees['nom'] . ' - '. $donnees['prix'] . '€</p>';
-}*/
+}
 
 //On peut filtrer avec WHERE pour demander uniquement les noms des jeux sur la console "NES" ou "PC" et trier grâce à ORDER BY par ordre de prix decroissant.
 $bdd = new PDO('mysql:host=localhost;dbname=jeuvideo','root','', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -80,8 +80,17 @@ $reponse = $bdd->query('SELECT console, nom, prix FROM jeux_video WHERE console=
 while ($donnees = $reponse->fetch())
 {
 echo '<p>'. $donnees['console'] . ' - '. $donnees['nom'] . ' - '. $donnees['prix'] . '€</p>';
+}*/
+
+//On peut filtrer avec WHERE pour demander uniquement les noms des jeux sur la console "NES" ou "PC" et trier grâce à ORDER BY par ordre de prix decroissant. Il peut etre utile de limiter le nombre de resultat reçu si la base de donnée est enorme... 
+$bdd = new PDO('mysql:host=localhost;dbname=jeuvideo','root','', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$reponse = $bdd->query('SELECT console, nom, prix FROM jeux_video WHERE console= "NES" OR console= "PC" ORDER BY prix DESC LIMIT 5');
+while ($donnees = $reponse->fetch())
+{
+echo '<p>'. $donnees['console'] . ' - '. $donnees['nom'] . ' - '. $donnees['prix'] . '€</p>';
 }
 
 
 ?>
+
 
