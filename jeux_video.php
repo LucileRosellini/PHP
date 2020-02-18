@@ -80,7 +80,7 @@ $reponse = $bdd->query('SELECT console, nom, prix FROM jeux_video WHERE console=
 while ($donnees = $reponse->fetch())
 {
 echo '<p>'. $donnees['console'] . ' - '. $donnees['nom'] . ' - '. $donnees['prix'] . '€</p>';
-}*/
+}
 
 //On peut filtrer avec WHERE pour demander uniquement les noms des jeux sur la console "NES" ou "PC" et trier grâce à ORDER BY par ordre de prix decroissant. Il peut etre utile de limiter le nombre de resultat reçu si la base de donnée est enorme... 
 $bdd = new PDO('mysql:host=localhost;dbname=jeuvideo','root','', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -88,7 +88,18 @@ $reponse = $bdd->query('SELECT console, nom, prix FROM jeux_video WHERE console=
 while ($donnees = $reponse->fetch())
 {
 echo '<p>'. $donnees['console'] . ' - '. $donnees['nom'] . ' - '. $donnees['prix'] . '€</p>';
+}*/
+
+//On peut egalement créer des variables afin de permettre à l'utilisateur de programmer des préférences par exemple.
+//On peut demandé par exemple à l'utilisateur de choisir la console dont il veut les données. Requête dit "préparée". ici l'utilisateur demande NES
+$bdd = new PDO('mysql:host=localhost;dbname=jeuvideo','root','', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$requete = $bdd->prepare('SELECT * FROM jeux_video WHERE console = ?');
+$requete ->execute (array('NES'));
+while ($donnees = $requete->fetch())
+{
+echo '<p>'. $donnees['console'] . ' - '. $donnees['nom'] . ' - '. $donnees['prix'] . '€</p>';
 }
+
 
 
 ?>
