@@ -48,15 +48,33 @@ $reponse = $bdd->query('SELECT console, nom FROM jeux_video WHERE console= "NES"
 while ($donnees = $reponse->fetch())
 {
 echo '<p>'. $donnees['console'] . ' - '. $donnees['nom'] . '</p>';
-}*/
+}
 
-//On peut filtrer avec WHERE pour demander uniquement les noms des jeux sur la console "NES" ou "PC" et trier grâce à ORDER BY.
+//On peut filtrer avec WHERE pour demander uniquement les noms des jeux sur la console "NES" ou "PC" et trier grâce à ORDER BY par ordre alphabetique.
 $bdd = new PDO('mysql:host=localhost;dbname=jeuvideo','root','', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 $reponse = $bdd->query('SELECT console, nom FROM jeux_video WHERE console= "NES" OR console= "PC" ORDER BY nom');
 while ($donnees = $reponse->fetch())
 {
 echo '<p>'. $donnees['console'] . ' - '. $donnees['nom'] . '</p>';
 }
+
+//On peut filtrer avec WHERE pour demander uniquement les noms des jeux sur la console "NES" ou "PC" et trier grâce à ORDER BY par ordre de prix /!/ même si le tableau "prix" n'est pas appellé!.
+$bdd = new PDO('mysql:host=localhost;dbname=jeuvideo','root','', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$reponse = $bdd->query('SELECT console, nom FROM jeux_video WHERE console= "NES" OR console= "PC" ORDER BY prix');
+while ($donnees = $reponse->fetch())
+{
+echo '<p>'. $donnees['console'] . ' - '. $donnees['nom'] . '</p>';
+}*/
+
+//On peut filtrer avec WHERE pour demander uniquement les noms des jeux sur la console "NES" ou "PC" et trier grâce à ORDER BY par ordre de prix.
+$bdd = new PDO('mysql:host=localhost;dbname=jeuvideo','root','', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$reponse = $bdd->query('SELECT console, nom, prix FROM jeux_video WHERE console= "NES" OR console= "PC" ORDER BY prix');
+while ($donnees = $reponse->fetch())
+{
+echo '<p>'. $donnees['console'] . ' - '. $donnees['nom'] . ' - '. $donnees['prix'] . '€</p>';
+}
+
+
 
 
 ?>
