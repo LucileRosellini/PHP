@@ -98,7 +98,7 @@ $requete ->execute (array('NES'));
 while ($donnees = $requete->fetch())
 {
 echo '<p>'. $donnees['console'] . ' - '. $donnees['nom'] . ' - '. $donnees['prix'] . '€</p>';
-}*/
+}
 
 //On peut egalement créer des variables afin de permettre à l'utilisateur de programmer des préférences par exemple.
 //On peut demandé par exemple à l'utilisateur de choisir la console dont il veut les données. On peut recupéré des champs envoyé en GET
@@ -109,7 +109,24 @@ $requete ->execute (array($_GET['console']));
 while ($donnees = $requete->fetch())
 {
 echo '<p>'. $donnees['console'] . ' - '. $donnees['nom'] . ' - '. $donnees['prix'] . '€</p>';
+}*/
+
+
+//On peut demandé par exemple à l'utilisateur de choisir la console dont il veut les données. On peut recupéré des champs envoyé en GET
+// Pour l'exemple dans le navigateur on simule le GET http://localhost/PHP/jeux_video.php?console=PC (on ajoute ?console=PC par rapport aux exercices précédents.)
+// Afin d'eviter que l'utilisateur ne rentre n'importe quoi comme paramètre consol ce qui pourrait planter le process il peut -être judicieux de faire un ISSET "test"
+
+if (isset($_GET ['console']))
+{
+    $bdd = new PDO('mysql:host=localhost;dbname=jeuvideo','root','', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    $requete = $bdd->prepare('SELECT * FROM jeux_video WHERE console = ?');
+    $requete ->execute (array($_GET['console']));
+    while ($donnees = $requete->fetch())
+    {
+    echo '<p>'. $donnees['console'] . ' - '. $donnees['nom'] . ' - '. $donnees['prix'] . '€</p>';
+    }
 }
+
 
 ?>
 
