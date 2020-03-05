@@ -1,0 +1,61 @@
+body {
+
+}
+
+.hero{
+    background-position: bottom;
+    padding:150px 0 ;
+}
+
+footer {
+
+}
+
+h1,h2,.hero{
+    text-align: center;
+}
+
+h1{
+    font-size: 3em;
+    color:#175732;
+}
+
+.row{
+    display: flex;
+    margin-top:2em;
+    margin-right:10em;
+    margin-bottom:2em;
+    margin-left:10em;
+}
+
+p,.col-lg-8{
+    margin: auto;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.imgarticle{
+  max-width: 100%;
+  height: auto;
+}
+
+h1,.col-lg-12{
+    text-align: center;
+}
+
+.nomarticle{
+    text-align: center;
+    font-size: 2em;
+}
+
+.prixarticle{
+    text-align: center;
+    font-size: 2em;
+}
+
+.erreur{
+    text-align: center;
+    font-size: 2em;
+    color: red;
+}
