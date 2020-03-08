@@ -1,0 +1,41 @@
+{
+    "title": "Get Up, Stand Up",
+    "data": {
+        "chorus": [
+            "Get up, stand up, stand up for your rights!",
+            "Get up, stand up, stand up for your rights!",
+            "Get up, stand up, stand up for your rights!",
+            "Get up, stand up, don't give up the fight!"
+        ],
+        "verse": {
+            "first_verse1": [
+                "Preacher man, don't tell me",
+                "Heaven is under the earth"
+            ],
+            "second_verse1": [
+                "Most people think",
+                "Great God will come from the skies",
+                "Take away everything"
+            ],
+            "first_verse2": [
+                "I know you don't know",
+                "What life is really worth",
+                "It's not all that glitters is gold"
+            ],
+            "second_verse2": [
+                "And make everybody feel high",
+                "But if you know what life is worth"
+            ],
+            "first_verse3": [
+                "Alf the story has never been told",
+                "So now you see the light, eh!",
+                "Stand up for your rights. Come on!"
+            ],
+            "second_verse3": [
+                "You will look for yours on earth",
+                "And now you see…"
+            ]
+        }
+    },
+    "author": "Bob Marley"
+}
